@@ -2,6 +2,8 @@
 
 ## 1.1 What Is Python?
 
+![python-logo-master-v3-TM](./assets/python-logo-master-v3-TM.png)
+
 Python is a high-level, general-purpose programming language designed to emphasize readability, simplicity, and productivity. It allows programmers to express computational ideas with relatively little code, making it suitable for both small scripts and large software systems.
 
 Python is an interpreted language in common use: programs are typically executed by a Python interpreter rather than compiled directly into standalone machine code by the programmer. Its dynamic type system allows variables to refer to objects of different types during execution, offering flexibility at the cost of certain checks that statically typed languages can perform earlier.
@@ -30,7 +32,7 @@ Python is therefore best understood not as a solution to every programming probl
 
 ## 1.3 The Creator and Historical Development
 
-<img src="./assets/guido-headshot-2019.jpg" alt="guido-headshot-2019" style="zoom: 33%;" />
+<img src="./assets/guido-headshot-2019.jpg" alt="guido-headshot-2019" style="zoom:33%;" />
 
 Python was created by Guido van Rossum, a Dutch computer scientist. Development began in the late 1980s, and the language was first released publicly in 1991.
 
@@ -60,13 +62,13 @@ The important question is not whether Python can replace every other language, b
 
 ## 1.5 Python and Artificial Intelligence
 
-Python has become one of the principal programming languages in artificial intelligence (AI), particularly in machine learning, deep learning, data science, and large language model (LLM) application development.
+Python has become one of the principal programming languages in **artificial intelligence (AI)**, particularly in machine learning, deep learning, data science, and **large language model (LLM)** application development.
 
 Several factors contribute to its popularity.
 
 First, Python's relatively concise syntax allows researchers and engineers to express algorithms without excessive syntactic overhead. This is especially valuable when experimenting with mathematical models or testing new ideas.
 
-Second, Python has a mature ecosystem of scientific and AI libraries. Tools such as NumPy and pandas support numerical computing and data analysis, while frameworks such as PyTorch and TensorFlow support machine learning and deep learning.
+Second, Python has a mature ecosystem of scie0ntific and AI libraries. Tools such as NumPy and pandas support numerical computing and data analysis, while frameworks such as PyTorch and TensorFlow support machine learning and deep learning.
 
 Third, Python integrates well with high-performance components implemented in languages such as C and C++. Consequently, the apparent simplicity of Python code does not necessarily imply that every underlying operation executes slowly.
 
@@ -101,7 +103,7 @@ The traditional first program in a programming course displays the words `Hello,
 
 Create a Python file named `hello_world.py` and enter the following code:
 
-```
+```python
 print("Hello, World!")
 ```
 

@@ -38,11 +38,11 @@ None
 
 Each expression represents a value of a particular type.
 
-A literal is not the same thing as a variable. A literal appears directly in the source code, whereas a variable provides a name through which a value or object can be accessed.
+A literal is not the same thing as a variable. A literal appe0ars directly in the source code, whereas a variable provides a name through which a value or object can be accessed.
 
 For example:
 
-```
+```python
 # Example 2.1: Basic Literals
 
 print(42)
@@ -75,7 +75,7 @@ Python supports several categories of literals.
 
 The underscore character can improve the readability of long numeric literals.
 
-```
+```python
 # Example 2.2: Readable Numeric Literals
 
 population = 1_400_000_000
@@ -96,7 +96,7 @@ Underscores in numeric literals are separators for human readers. They do not ch
 
 Python also supports integer literals in hexadecimal, binary, and octal notation:
 
-```
+```python
 # Example 2.3: Integer Number Systems
 
 decimal_number = 42
@@ -133,7 +133,7 @@ An expression is a combination of literals, variables, operators, and function c
 
 For example:
 
-```
+```python
 # Example 2.4: Expressions Produce Values
 
 result = 10 + 5 * 2
@@ -163,7 +163,7 @@ Python integers can represent arbitrarily large integers, subject to available m
 
 Floating-point numbers, however, generally use binary floating-point arithmetic and cannot represent every decimal fraction exactly.
 
-```
+```python
 # Example 2.5: Floating-Point Precision
 
 print(0.1 + 0.2)
@@ -181,7 +181,7 @@ This result is not a random malfunction. Many decimal fractions have no exact fi
 
 When comparing floating-point results, a tolerance is often more appropriate than exact equality.
 
-```
+```python
 # Example 2.6: Comparing Floating-Point Values
 
 result = 0.1 + 0.2
@@ -207,7 +207,7 @@ A **variable** is a name bound to an object.
 
 In Python, assignment does not declare a fixed memory container with a permanently established type. Instead, it binds a name to an object.
 
-```
+```python
 # Example 2.7: Creating Variables
 
 name = "Alice"
@@ -246,7 +246,7 @@ It does not mean that `age` is a special integer-shaped container that can never
 
 In mathematics, an equals sign generally expresses equality. In Python, `=` is an assignment operator.
 
-```
+```python
 # Example 2.8: Assignment and Equality
 
 number = 10
@@ -293,7 +293,7 @@ Confusing assignment with equality is a common beginner error. The distinction r
 
 Python allows multiple names to be assigned in a single statement.
 
-```
+```python
 # Example 2.9: Multiple Assignment
 
 x, y, z = 10, 20, 30
@@ -315,7 +315,7 @@ The number of target names must match the number of values in an unpacking assig
 
 Python also permits assigning the same object reference to several names:
 
-```
+```python
 # Example 2.10: Assigning One Value to Multiple Names
 
 x = y = z = 100
@@ -335,7 +335,7 @@ All three names refer to the same integer object. Since integers are immutable, 
 
 Python supports swapping two variables without a temporary variable.
 
-```
+```python
 # Example 2.11: Swapping Two Variables
 
 a = 10
@@ -362,7 +362,7 @@ Python evaluates the right-hand side before completing the assignments to the ta
 
 A name can be rebound to a different object.
 
-```
+```python
 # Example 2.12: Variable Reassignment
 
 value = 10
@@ -399,7 +399,7 @@ Java, by contrast, is statically typed. A variable declared as `int` cannot subs
 
 Java:
 
-```
+```java
 int value = 10;
 value = 20;
 
@@ -408,7 +408,7 @@ value = 20;
 
 Python:
 
-```
+```python
 # Example 2.13: Dynamic Typing
 
 value = 10
@@ -434,9 +434,9 @@ Static typing can detect many incompatible assignments before execution. Python 
 
 Python's object model is best understood in terms of names and objects.
 
-Consider:
+Consider the following example:
 
-```
+```python
 # Example 2.14: Two Names Referring to One Object
 
 first = [1, 2, 3]
@@ -461,10 +461,60 @@ second = first
 
 does not create a new list. It binds `second` to the same list object already referenced by `first`.
 
-Consequently, modifying the list through one name affects what is observed through the other.
+Python provides the `is` operator to test **object identity**: whether two references point to the same object.
+
+```python
+# Example 2.15: Testing Object Identity
+
+first = [1, 2, 3]
+second = first
+third = [1, 2, 3]
+
+print(first is second)
+print(first is third)
+```
+
+Output:
 
 ```
-# Example 2.15: Shared Mutable Objects
+True
+False
+```
+
+`first is second` evaluates to `True` because both names refer to the same list object.
+
+`first is third` evaluates to `False` because `third` refers to a separate list object, even though that list contains the same elements.
+
+This distinction can be summarized as follows:
+
+- `==` tests whether two objects compare equal in value.
+- `is` tests whether two references identify the same object.
+
+For example:
+
+```python
+# Example 2.16: Equality Versus Identity
+
+first = [1, 2, 3]
+second = [1, 2, 3]
+
+print(first == second)
+print(first is second)
+```
+
+Output:
+
+```
+True
+False
+```
+
+The lists have equal contents, but they are distinct objects.
+
+Returning to the original example, modifying the list through one name affects what is observed through the other.
+
+```python
+# Example 2.17: Shared Mutable Objects
 
 first = [1, 2, 3]
 second = first
@@ -484,18 +534,20 @@ Output:
 True
 ```
 
-Both names refer to the same object.
+Both names refer to the same mutable object. Consequently, modifying the list through `second` also changes the list observed through `first`.
 
 This is a fundamental distinction between rebinding a name and modifying an object.
 
 Rebinding changes which object a name refers to. Mutation changes the state of an existing mutable object.
 
+A useful mental model is to think of names as labels attached to objects rather than independent containers. Moving one label does not move the object to which another label is attached.
+
 ### 2.4.4 Reassignment Does Not Necessarily Modify an Object
 
 Consider the following example:
 
-```
-# Example 2.16: Rebinding Versus Mutation
+```python
+# Example 2.18: Rebinding Versus Mutation
 
 first = [1, 2, 3]
 second = first
@@ -531,8 +583,8 @@ Think of names as labels attached to objects rather than boxes into which object
 
 If two names must refer to independent lists, create a copy.
 
-```
-# Example 2.17: Copying a List
+```python
+# Example 2.19: Copying a List
 
 original = [1, 2, 3]
 copied = original.copy()
@@ -586,8 +638,8 @@ An identifier cannot begin with a digit, and ordinary identifiers cannot contain
 
 Valid identifiers:
 
-```
-# Example 2.18: Valid Identifiers
+```python
+# Example 2.20: Valid Identifiers
 
 name = "Alice"
 user_name = "Bob"
@@ -597,8 +649,8 @@ _private_value = 100
 
 Invalid identifiers include:
 
-```
-# Example 2.19: Invalid Identifiers
+```py
+# Example 2.21: Invalid Identifiers
 
 # 2age = 30
 # user-name = "Alice"
@@ -615,8 +667,8 @@ For example, `class`, `if`, `for`, and `return` have special grammatical meaning
 
 Python is case-sensitive.
 
-```
-# Example 2.20: Case-Sensitive Identifiers
+```python
+# Example 2.22: Case-Sensitive Identifiers
 
 name = "Alice"
 Name = "Bob"
@@ -663,8 +715,8 @@ Keywords have syntactic significance. Built-in names, such as `print`, `str`, an
 
 You should avoid using built-in names as variable names.
 
-```
-# Example 2.21: Avoid Shadowing Built-in Names
+```python
+# Example 2.23: Avoid Shadowing Built-in Names
 
 # Avoid:
 # list = [1, 2, 3]
@@ -683,8 +735,8 @@ This is called **shadowing** a name. It can produce confusing errors that are en
 
 To inspect Python's keywords:
 
-```
-# Example 2.22: Inspecting Python Keywords
+```python
+# Example 2.24: Inspecting Python Keywords
 
 import keyword
 
@@ -726,8 +778,8 @@ This chapter focuses primarily on numeric types, booleans, strings, and `None`. 
 
 The `int` type represents integers.
 
-```
-# Example 2.23: Integer Operations
+```python
+# Example 2.25: Integer Operations
 
 a = 10
 b = 3
@@ -764,8 +816,8 @@ Floor division rounds the mathematical quotient down toward negative infinity. I
 
 For example:
 
-```
-# Example 2.24: Floor Division with Negative Numbers
+```python
+# Example 2.26: Floor Division with Negative Numbers
 
 print(7 // 3)
 print(-7 // 3)
@@ -798,8 +850,8 @@ This is a frequent source of cross-language surprises.
 
 The `float` type represents floating-point numbers.
 
-```
-# Example 2.25: Floating-Point Values
+```python
+# Example 2.27: Floating-Point Values
 
 price = 19.99
 temperature = -3.5
@@ -821,8 +873,8 @@ This provides a wide numeric range and efficient arithmetic, but decimal precisi
 
 Python supports complex numbers, using `j` to denote the imaginary component.
 
-```
-# Example 2.26: Complex Numbers
+```python
+# Example 2.28: Complex Numbers
 
 number = 2 + 3j
 
@@ -854,8 +906,8 @@ False
 
 These values represent logical truth.
 
-```
-# Example 2.27: Boolean Expressions
+```python
+# Example 2.29: Boolean Expressions
 
 is_adult = True
 has_permission = False
@@ -881,8 +933,8 @@ The `bool` type is a subclass of `int`.
 
 Consequently:
 
-```
-# Example 2.28: Booleans and Integers
+```python
+# Example 2.30: Booleans and Integers
 
 print(isinstance(True, int))
 print(True + True)
@@ -903,8 +955,8 @@ Although this behavior is valid Python, Boolean values should generally be used 
 
 `None` is a special singleton object representing the absence of a value or the lack of a meaningful result.
 
-```
-# Example 2.29: The None Value
+```python
+# Example 2.31: The None Value
 
 result = None
 
@@ -2071,7 +2123,7 @@ Create a new string instead.
 
 The `==` operator tests equality. The `is` operator tests object identity.
 
-```
+```python
 # Example 2.75: Equality Versus Identity
 
 first = [1, 2, 3]
